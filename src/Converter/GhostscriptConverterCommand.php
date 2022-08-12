@@ -30,13 +30,10 @@ class GhostscriptConverterCommand
 
     public function run($originalFile, $newFile, $newVersion)
     {
-        $command = sprintf($this->baseCommand, $newVersion, $newFile, escapeshellarg($originalFile));
-
-        $process = new Process($command);
+        $command = sprintf($this->baseCommand, $newVersion, $newFile);
+        $command_new = explode(' ',$command);        
+        array_push($command_new,$originalFile);                
+        $process = new Process($command_new);
         $process->run();
-
-        if (!$process->isSuccessful()) {
-            throw new \RuntimeException($process->getErrorOutput());
-        }
     }
 }
