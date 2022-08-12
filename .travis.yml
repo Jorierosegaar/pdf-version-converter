@@ -180,6 +180,6 @@ matrix:
 
 notifications:
     email:
-      - xthiago@gmail.com
+      - jorie@rosegaar.nl
     on_success: never
     on_failure: always
